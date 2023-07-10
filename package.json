@@ -1,6 +1,6 @@
 {
   "name": "nx-gcp-cache",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "GCP Cloud Storage Cache plugin for Nx",
   "keywords": [
     "GCP",
@@ -16,9 +16,9 @@
   ],
   "license": "MIT",
   "author": "David Garcia",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "typings": "lib/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "typings": "./lib/index.d.ts",
   "generators": "./generators.json",
   "repository": {
     "type": "git",
@@ -71,6 +71,9 @@
     "typescript": "5.0.4"
   },
   "files": [
+    "src/generators/init/schema.json",
+    "lib/",
     "generators.json"
+
   ]
 }

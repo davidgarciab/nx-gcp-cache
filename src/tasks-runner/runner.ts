@@ -1,5 +1,3 @@
-dotEnvConfig();
-
 import { defaultTasksRunner } from '@nx/devkit';
 import { TaskStatus } from '@nx/workspace/src/tasks-runner/tasks-runner';
 import { config as dotEnvConfig } from 'dotenv';
@@ -8,6 +6,8 @@ import { GcpCache } from './gcp-cache';
 import { Logger } from './logger';
 import { MessageReporter } from './message-reporter';
 import { GcpNxCacheOptions } from './models/gcp-nx-cache-options.model';
+
+dotEnvConfig();
 
 function getOptions(options: GcpNxCacheOptions) {
   return {

@@ -21,15 +21,10 @@ export class GcpCache implements RemoteCache {
     private messages: MessageReporter,
   ) {
     const gcpBucket = options.gcpBucket ?? '';
-    console.log(`gcpBucket: ${gcpBucket}`);
     const bucketTokens = gcpBucket.split('/');
     this.bucket = bucketTokens.shift() as string;
-    console.log(`bucket: ${this.bucket}`);
     this.path = bucketTokens.join('/');
-    console.log(`path: ${this.path}`);
-    this.logger.warn(`bucket: ${this.bucket}`);
     this.gcsClient = new Storage().bucket(this.bucket, {});
-    // const options: StorageOptions = {};
   }
 
   public checkConfig(options: GcpNxCacheOptions): void {
