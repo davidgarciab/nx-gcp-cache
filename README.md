@@ -48,7 +48,7 @@ There are two ways to set-up plugin options, using `nx.json` or `Environment var
 
 > Environment variables can be set using `.env` file - check [dotenv documentation](https://www.npmjs.com/package/dotenv).
 
-## Disabling S3 cache
+## Disabling GCS cache
 
 Remote cache can be disabled in favor of local cache using an environment variable
 
