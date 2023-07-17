@@ -29,7 +29,7 @@ There are two ways to set-up plugin options, using `nx.json` or `Environment var
 | ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------- | ------------------------------ |
 | Bucket            | Bucket name where cache files are stored or retrieved (can contain sub-paths as well).              | `NXCACHE_GCP_BUCKET`            | `gcpBucket`          | bucket-name/sub-path           |
 
-> **Important:** `Environment variables` take precedence over `nx.json` options (introduced in v3.0.0)!
+> **Important:** `Environment variables` take precedence over `nx.json` options!
 
 ### `nx.json` example
 
