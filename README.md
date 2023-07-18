@@ -58,11 +58,11 @@ NXCACHE_GCP_DISABLE=true
 
 ## Authentication
 
-> **Important:** Only ADP authentication is supported right now
+> **Important:** Only ADC authentication is supported right now
 
 ### Default
 
-GCP authentication can be set-up using Application Default Credentials (ADP), based on [GCP ADP documentation](https://cloud.google.com/docs/authentication/provide-credentials-adc).
+GCP authentication can be set-up using Application Default Credentials (ADC), based on [GCP ADC documentation](https://cloud.google.com/docs/authentication/provide-credentials-adc).
 
 ### SSO login
 
