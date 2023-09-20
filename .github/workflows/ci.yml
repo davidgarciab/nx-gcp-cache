@@ -24,6 +24,7 @@ jobs:
         run: yarn build
   test:
     name: Unit Tests & E2Es
+    needs: 'build'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
