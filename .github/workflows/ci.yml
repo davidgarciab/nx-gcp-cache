@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Build
-        uses: yarn build
+        run: yarn build
   test:
     name: Unit Tests & E2Es
     runs-on: ubuntu-latest
@@ -36,6 +36,6 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Build
-        uses: yarn build
+        run: yarn build
       - name: Unit Tests & E2Es
-        uses: yarn test
+        run: yarn test
