@@ -1,4 +1,11 @@
-import { formatFiles, logger, Tree, updateJson, readRootPackageJson } from '@nx/devkit';
+import {
+  formatFiles,
+  logger,
+  Tree,
+  updateJson,
+  readRootPackageJson,
+  NxJsonConfiguration,
+} from '@nx/devkit';
 
 import { InitGeneratorSchema } from './schema';
 
@@ -34,15 +41,15 @@ function isCompatibleVersion() {
 }
 
 function updateNxJson(tree: Tree, options: InitGeneratorSchema): void {
-  updateJson(tree, 'nx.json', (jsonContent) => {
-    const currentOptions = jsonContent.tasksRunnerOptions?.default?.options;
+  updateJson(tree, 'nx.json', (jsonContent: NxJsonConfiguration) => {
+    const currentOptions = jsonContent.tasksRunnerOptions!.default.options as object;
 
     jsonContent.tasksRunnerOptions = {
       default: {
         runner: 'nx-gcp-cache',
         options: {
           ...currentOptions,
-          ...(options.gcpBucket ? { gcpBucket: options.gcpBucket } : {})
+          ...(options.gcpBucket ? { gcpBucket: options.gcpBucket } : {}),
         },
       },
     };

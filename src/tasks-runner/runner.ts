@@ -1,5 +1,5 @@
 import { defaultTasksRunner } from '@nx/devkit';
-import { TaskStatus } from '@nx/workspace/src/tasks-runner/tasks-runner';
+import { TaskStatus, TasksRunner } from '@nx/workspace/src/tasks-runner/tasks-runner';
 import { config as dotEnvConfig } from 'dotenv';
 
 import { GcpCache } from './gcp-cache';
@@ -29,7 +29,7 @@ export const tasksRunner = (
     if (process.env.NXCACHE_GCP_DISABLE === 'true') {
       logger.note('USING LOCAL CACHE (NXCACHE_GCP_DISABLE is set to true)');
 
-      return defaultTasksRunner(tasks, options, context);
+      return defaultTasksRunner(tasks, options, context) as TasksRunner;
     }
 
     logger.note('USING REMOTE CACHE');
@@ -46,8 +46,10 @@ export const tasksRunner = (
       context,
     ) as Promise<{ [id: string]: TaskStatus }>;
 
-    runner.finally(async () => {
-      await remoteCache.waitForStoreRequestsToComplete();
+    runner.finally(() => {
+      async () => {
+        await remoteCache.waitForStoreRequestsToComplete();
+      };
       messages.printMessages();
     });
 
@@ -56,7 +58,7 @@ export const tasksRunner = (
     logger.warn((err as Error).message);
     logger.note('USING LOCAL CACHE');
 
-    return defaultTasksRunner(tasks, options, context);
+    return defaultTasksRunner(tasks, options, context) as TasksRunner;
   }
 };
 
