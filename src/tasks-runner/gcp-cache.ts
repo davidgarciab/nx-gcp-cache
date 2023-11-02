@@ -108,6 +108,7 @@ export class GcpCache implements RemoteCache {
           gzip: true,
           file: tgzFilePath,
           cwd: cacheDirectory,
+          filter: (path) => path !== `${hash}/source`,
         },
         [hash],
       );
